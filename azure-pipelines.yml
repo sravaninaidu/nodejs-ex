@@ -15,6 +15,11 @@ steps:
   inputs:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'OpenShift connection'
+    cmd: 'oc new-app https://github.com/rcarneironet/nodejs-ex -l name=myapp-demo01'
+- task: oc-cmd@2
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'OpenShift connection'
     cmd: 'oc start-build nodejs-ex --follow'
 - task: oc-cmd@2
   inputs:
