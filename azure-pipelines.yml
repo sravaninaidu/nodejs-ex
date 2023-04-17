@@ -20,13 +20,3 @@ steps:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'Openshift'
     cmd: 'oc status'
-- task: oc-cmd@3
-  inputs:
-    connectionType: 'OpenShift Connection Service'
-    openshiftService: 'Openshift'
-    cmd: 'oc expose service/nodejs-ex'
-- task: oc-cmd@3
-  inputs:
-    connectionType: 'OpenShift Connection Service'
-    openshiftService: 'Openshift'
-    cmd: 'oc get route/nodejs-ex'
