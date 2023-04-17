@@ -10,19 +10,19 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: oc-cmd@2
+- task: oc-cmd@3
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'os-conn'
+    openshiftService: 'Openshift'
     #cmd: 'oc start-build nodejs-ex --follow'
-    cmd: 'oc new-app https://github.com/rcarneironet/nodejs-ex -l name=vssummit-app'
-- task: oc-cmd@2
+    cmd: 'oc new-app https://github.com/iam-aravind/nodejs-ex -l name=test-app'
+- task: oc-cmd@3
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'os-conn'
+    openshiftService: 'Openshift'
     cmd: 'oc start-build nodejs-ex --follow'    
-- task: oc-cmd@2
+- task: oc-cmd@3
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'os-conn'
+    openshiftService: 'Openshift'
     cmd: 'oc status'
