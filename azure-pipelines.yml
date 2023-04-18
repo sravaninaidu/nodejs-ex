@@ -27,7 +27,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'jmeter -n -t loadtest.jmx -l result.jtl -e -o reports'
-    workingDirectory: 'loadtest.jmx'
+    workingDirectory: 'nodejs-ex'
 - task: PublishReleaseArtifact@1
   inputs:
     artifactPath: '$(System.DefaultWorkingDirectory)/'
