@@ -28,3 +28,6 @@ steps:
   inputs:
     script: 'jmeter -n -t loadtest.jmx -l result.jtl -e -o reports'
     workingDirectory: 'loadtest.jmx'
+- task: PublishReleaseArtifact@1
+  inputs:
+    artifactPath: '$(System.DefaultWorkingDirectory)/'
