@@ -20,3 +20,11 @@ steps:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'Openshift'
     cmd: 'oc status'
+- task: JMeterInstaller@0
+  inputs:
+    jmeterVersion: '5.4.2'
+    plugins: 'jpgc-casutg,jpgc-dummy,jpgc-ffw,jpgc-fifo,jpgc-functions,jpgc-json,jpgc-perfmon,jpgc-prmctl,jpgc-tst,jmeter.backendlistener.azure'
+- task: CmdLine@2
+  inputs:
+    script: 'jmeter -n -t loadtest.jmx -l result.jtl -e -o reports'
+    workingDirectory: 'loadtest.jmx'
