@@ -10,15 +10,23 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-
 - task: oc-cmd@3
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'Open_shift'
+    openshiftService: 'openshift-servicecon'
+    cmd: 'oc new-app https://github.com/sravaninaidu/nodejs-ex.git name=demo-app'
+- task: oc-cmd@3
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'openshift-servicecon'
     cmd: 'oc start-build nodejs-ex --follow'    
-
 - task: oc-cmd@3
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'Open_shift'
+    openshiftService: 'openshift-servicecon'
+    cmd: 'oc expose service/nodejs-ex'
+- task: oc-cmd@3
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'openshift-servicecon'
     cmd: 'oc status'
