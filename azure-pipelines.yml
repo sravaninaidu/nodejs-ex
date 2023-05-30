@@ -13,20 +13,20 @@ steps:
 - task: oc-cmd@3
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'openshift-servicecon'
+    openshiftService: 'openshift-todaydemo'
     cmd: 'oc new-app https://github.com/sravaninaidu/nodejs-ex.git name=demo-app'
 - task: oc-cmd@3
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'openshift-servicecon'
+    openshiftService: 'openshift-todaydemo'
     cmd: 'oc start-build nodejs-ex --follow'    
 - task: oc-cmd@3
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'openshift-servicecon'
+    openshiftService: 'openshift-todaydemo'
     cmd: 'oc expose service/nodejs-ex'
 - task: oc-cmd@3
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'openshift-servicecon'
+    openshiftService: 'openshift-todaydemo'
     cmd: 'oc status'
